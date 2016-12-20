@@ -1,0 +1,34 @@
+.drumkit
+  background: url("http://i.imgur.com/5icc2KZ.jpg")
+  background-size: cover
+  height: 100%
+  .parent
+    margin: 0 5%
+    align-items: center
+    height: 100%
+    display: flex
+    justify-content: center
+  .key
+    flex: 1
+    margin: 5px
+    text-align: center
+    line-height: 50px
+    font-weight: 600
+    background-color: rgba(0, 0, 0, 0.5)
+    border: 3px solid #000
+    border-radius: 5px
+    flex-direction: column
+    padding: 15px
+    transition: all .07s
+    &.playing
+      transform: scale(1.1)
+      border-color: deeppink
+      box-shadow: 0 0 10px deeppink
+    .letter
+      font-size: 50px
+      color: white
+      display: block
+    .sound
+      display: block
+      line-height: 1
+      color: yellow
