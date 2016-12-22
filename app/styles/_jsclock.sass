@@ -1,0 +1,30 @@
+.jsclock
+  background-color: #00b3ee
+  .parent
+    .item
+  .clock
+    .clock-face
+      $clockWidth: 400px
+      border: 10px solid white
+      min-height: $clockWidth
+      width: $clockWidth
+      border-radius: $clockWidth / 2
+      position: relative
+      .hand
+        position: absolute
+        background: black
+        width: 50%
+        height: 5px
+        top: 50%
+        transform: rotate(90deg)
+        transform-origin: 100%
+        transition: all .05s
+        transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1)
+        &.sec-hand
+          height: 5px
+        &.min-hand
+          height: 9px
+        &.hour-hand
+          width: 30%
+          left: 20%
+          height: 12px
