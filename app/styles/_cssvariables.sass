@@ -1,0 +1,17 @@
+$vars: (base: #ffc600, spacing: 10px, blur: 10px)
+
+\:root
+  @each $key, $value in $vars
+    --#{$key}: $value
+.cssvariables
+  .parent
+    flex-direction: column
+    h2
+      .h1
+        color: var(--base)
+    .controls
+      margin-bottom: 10px
+    img
+      background: var(--base)
+      padding: var(--spacing)
+      filter: blur(var(--blur))
