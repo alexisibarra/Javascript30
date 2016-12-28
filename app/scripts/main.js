@@ -17,18 +17,13 @@ function removeTransition(e) {
   e.target.classList.remove('playing');
 }
 
-window.addEventListener('keydown', playSound);
-var keys = Array.from(document.querySelectorAll('.key'));
-keys.forEach(function (key) {
-  return key.addEventListener('transitionend', removeTransition);
-});
-
-const secondHand = document.querySelector('.sec-hand')
-const minutesHand = document.querySelector('.min-hand')
-const hoursHand = document.querySelector('.hour-hand')
-
 function setDate(){
   const now = new Date();
+
+  const secondHand = document.querySelector('.sec-hand');
+  const minutesHand = document.querySelector('.min-hand');
+  const hoursHand = document.querySelector('.hour-hand');
+
   const seconds = now.getSeconds();
   const minutes = now.getMinutes();
   const hours = now.getHours();
@@ -44,5 +39,40 @@ function setDate(){
   console.log(hours, ":", minutes, ":", seconds);
 }
 
-setInterval(setDate, 1000);
+
+function handleUpdate(){
+  const suffix = this.dataset.sizing || '';
+
+  document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+}
+
+const body = document.querySelector('body');
+
+switch (body.classList[0]){
+  case "drumkit":
+    console.log("drumkit");
+
+    window.addEventListener('keydown', playSound);
+    var keys = Array.from(document.querySelectorAll('.key'));
+    keys.forEach(function (key) {
+      return key.addEventListener('transitionend', removeTransition);
+    });
+    break;
+  case "jsclock":
+    console.log("jsclock");
+
+
+    setInterval(setDate, 1000);
+    break;
+  case "cssvariables":
+    console.log("cssvariables");
+
+    const inputs = document.querySelectorAll('.controls input');
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+    break;
+}
+
 //# sourceMappingURL=main.js.map
