@@ -158,11 +158,11 @@ switch (body.classList[0]){
     const transportation = data.reduce((acc, item) => {
       if(!acc[item]) {
         acc[item] = 0;
-      } else {
-        acc[item]++;
       }
-      console.log(item); acc[item] += 1
-    }, {})
+      acc[item]++;
+
+      return acc
+    }, {});
 
     console.log(transportation);
     break;
